@@ -1,0 +1,63 @@
+# Agent Queue 'Azure Pipelines' was used with unrecognized Agent Specification, vmImage property must be specified to determine image - https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#software
+variables:
+- name: projectPath
+  value: RMG.IdentityServer/ApiAuthorization/RMG.ApiAuthorization.IdentityServer.csproj
+  
+name: $(date:yyyyMMdd)$(rev:.r)
+trigger:
+  branches:
+    include:
+      - master
+      - feat/*
+  paths:
+    include:
+      - 'RMG.IdentityServer/ApiAuthorization/*'
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    name: Azure Pipelines
+  steps:
+  - checkout: self
+    persistCredentials: true
+    fetchDepth: 1
+  - task: gitversion/setup@0
+    displayName: gitversion/setup
+    inputs:
+      versionSpec: 5.9.0
+  - task: CmdLine@2
+    inputs:
+     script: 'git fetch --unshallow --update-shallow'
+  - task: gitversion/execute@0
+    inputs:
+      useConfigFile: true
+      configFilePath: ./GitVersion.yml
+  - script: echo current version is $(GitVersion.SemVer)
+    displayName: 'Display calculated version'
+  - task: Bash@3
+    inputs:
+      targetType: inline
+      script: echo "##vso[build.updatebuildnumber]$(SemVer)"
+    displayName: 'Update build number'
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: restore
+      projects: $(projectPath)
+      feedRestore: TheRushmoreGroup
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      projects: $(projectPath)
+      arguments: --configuration $(BuildConfiguration)
+  
+  - powershell: |
+      dotnet pack $(projectPath) --configuration Release /p:AssemblyVersion='$(GitVersion.SemVer)' /p:FileVersion='$(GitVersion.AssemblySemFileVer)' /p:InformationalVersion='$(GitVersion.InformationalVersion)' /p:Version='$(GitVersion.SemVer)' -p:GeneratePackageOnBuild=false --output '$(Build.ArtifactStagingDirectory)'
+    name: Pack
+  
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Artifact
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'

@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  identityserverhost:
+    image: ${DOCKER_REGISTRY-}identityserverhost
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+        - "8084:8081"
