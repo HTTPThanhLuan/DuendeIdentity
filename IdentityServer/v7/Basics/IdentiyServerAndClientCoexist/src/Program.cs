@@ -41,11 +41,11 @@ try
          .AddIdentityServerJwt1();
 
 
-      //builder.Services.Configure<JwtBearerOptions>(IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
-      //  options =>
-      //  {
-      //      options.TokenValidationParameters.ValidateIssuer = false;
-      //  });
+    //builder.Services.Configure<JwtBearerOptions>(IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
+    //  options =>
+    //  {
+    //      options.TokenValidationParameters.ValidateIssuer = false;
+    //  });
 
 
     //Working without Docker ===============

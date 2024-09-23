@@ -1,0 +1,78 @@
+﻿:root {
+    --main_background: #FFFFCC;
+    --hover_background: rgba(0, 0, 0, 0.075);
+}
+
+html, body {
+    font-size: 15px;
+    background-color: var(--main_background) !important;
+}
+
+.welcome-page .logo {
+  width: 64px;
+}
+
+.icon-banner {
+  width: 32px;
+}
+
+.body-container {
+  margin-top: 60px;
+  padding-bottom: 40px;
+}
+
+.welcome-page li {
+  list-style: none;
+  padding: 4px;
+}
+
+.logged-out-page iframe {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.grants-page .card {
+  margin-top: 20px;
+  border-bottom: 1px solid lightgray;
+}
+.grants-page .card .card-title {
+  font-size: 120%;
+  font-weight: bold;
+}
+.grants-page .card .card-title img {
+  width: 100px;
+  height: 100px;
+}
+.grants-page .card label {
+  font-weight: bold;
+}
+.navbar-dark .navbar-brand{
+    color:black;
+}
+    .navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+        color: black;
+    }
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+     background-color:unset;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+.login_button {
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: tahoma;
+    HEIGHT: 30px;
+    WIDTH: 155px;
+    COLOR: black;
+    BACKGROUND-COLOR: #CDC8B1;
+}

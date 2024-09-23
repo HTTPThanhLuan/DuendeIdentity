@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="IdentityModel" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.7" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+
+		<PackageReference Include="Microsoft.IdentityModel.Protocols" Version="7.4.0" />
+		<PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.4.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="RMG.ApiAuthorization.IdentityServer">
+			<HintPath>..\..\..\..\..\..\..\..\..\..\RushMore\Projects\Devs\Clients\Pennsylvania_Razor\ThisApp.UI\Areas\Account\IdentityServer\RMG.ApiAuthorization.IdentityServer.dll</HintPath>
+		</Reference>
+		<Reference Include="RMG.IdentityServer">
+			<HintPath>..\..\..\..\..\..\..\..\..\..\RushMore\Projects\Devs\Clients\Pennsylvania_Razor\ThisApp.UI\Areas\Account\IdentityServer\RMG.IdentityServer.dll</HintPath>
+		</Reference>
+		<Reference Include="RMG.IdentityServer.AspNetIdentity">
+			<HintPath>..\..\..\..\..\..\..\..\..\..\RushMore\Projects\Devs\Clients\Pennsylvania_Razor\ThisApp.UI\Areas\Account\IdentityServer\RMG.IdentityServer.AspNetIdentity.dll</HintPath>
+		</Reference>
+		<Reference Include="RMG.IdentityServer.Storage">
+			<HintPath>..\..\..\..\..\..\..\..\..\..\RushMore\Projects\Devs\Clients\Pennsylvania_Razor\ThisApp.UI\Areas\Account\IdentityServer\RMG.IdentityServer.Storage.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+</Project>
