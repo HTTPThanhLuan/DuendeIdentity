@@ -1,4 +1,4 @@
-﻿// Copyright (c) Duende Software. All rights reserved.
+﻿ // Copyright (c) Duende Software. All rights reserved.
 // See LICENSE in the project root for license information.
 
 
@@ -18,10 +18,12 @@ public static class Clients
             {
                 ClientId = "client.credentials.sample",
 
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("secret".Sha256()) },
 
-                AllowedScopes = { "scope1", "scope2" }
+                AllowedScopes = { "scope1", "scope2" },
+                 AllowAccessTokensViaBrowser =true,
+               
             },
             
             // JWT-based client authentication sample
