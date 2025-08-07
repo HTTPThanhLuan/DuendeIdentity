@@ -67,7 +67,7 @@ public static class Clients
                 AllowedScopes = { "scope1", "scope2" }
             },
             
-               new Client
+            new Client
             {
                 ClientId = "interactive.mvc.sample3",
                 ClientSecrets = { new Secret("secret".Sha256()) },
@@ -81,7 +81,7 @@ public static class Clients
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
             },
-              new Client
+            new Client
             {
                 ClientId = "interactive.mvc.sample",
                 ClientSecrets = { new Secret("secret".Sha256()) },
@@ -122,9 +122,9 @@ public static class Clients
                 AllowedGrantTypes = GrantTypes.Code,
                 AccessTokenLifetime = 75,
 
-                RedirectUris = { "https://localhost:44300/signin-oidc" },
-                FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-                PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
+                RedirectUris = { "https://localhost:7053/signin-oidc" },
+                FrontChannelLogoutUri = "https://localhost:7053/signout-oidc",
+                PostLogoutRedirectUris = { "https://localhost:7053/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
@@ -168,26 +168,28 @@ public static class Clients
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
             },
-            
-            // MVC back-channel logout sample
-            new Client
+
+
+
+
+             
+             new Client
             {
-                ClientId = "mvc.backchannel.sample",
+                ClientId = "client2",
                 ClientSecrets = { new Secret("secret".Sha256()) },
-                
+
                 AllowedGrantTypes = GrantTypes.Code,
 
-                RedirectUris = { "https://localhost:44328/signin-oidc" },
-                BackChannelLogoutUri = "https://localhost:44328/logout",
-                PostLogoutRedirectUris = { "https://localhost:44328/signout-callback-oidc" },
+                RedirectUris = { "https://localhost:7053/signin-oidc" },
+                BackChannelLogoutUri = "https://localhost:7053/logout",
+                PostLogoutRedirectUris = { "https://localhost:7053/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
             },
 
-            ///////////////////////////////////////////
-            // MVC PAR Sample
-            //////////////////////////////////////////
+
+
             new Client
             {
                 ClientId = "mvc.par",
@@ -207,12 +209,159 @@ public static class Clients
                 // AllowUnregisteredPushedRedirectUris flag is enabled
                 // RedirectUris = { "https://localhost:44300/signin-oidc" },
 
-                FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-                PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
+                FrontChannelLogoutUri = "https://localhost:7053/signout-oidc",
+                PostLogoutRedirectUris = { "https://localhost:7053/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
 
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
             },
+             new Client
+            {
+                ClientId = "client0",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/" },
+
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            },
+
+
+            new Client
+            {
+                ClientId = "client_eli",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,           
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/eli/signin-oauth" },             
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/eli/" },
+               
+                AlwaysIncludeUserClaimsInIdToken = true,
+                
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            },
+
+            new Client
+            {
+                ClientId = "client_es",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/es/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/es/" },
+
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+            ,
+
+            new Client
+            {
+                ClientId = "client_interview",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/interview/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/interview/" },
+
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+             ,
+
+            new Client
+            {
+                ClientId = "client_cws",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/cws/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/cws/" },
+
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+             ,
+
+            new Client
+            {
+                ClientId = "client_appeals",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/appeals/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/appeals/" },
+
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+             ,
+
+            new Client
+            {
+                ClientId = "client_access",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+
+                RedirectUris = { "https://rushmoresystem01.azurewebsites.net/access/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/access/" },
+
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+            ,
+
+            new Client
+            {
+                ClientId = "client_css",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+              
+                RedirectUris = { "https://rushmoresystem02.azurewebsites.net/Identity/Account/ExternalLogin?handler=Callback" },
+                PostLogoutRedirectUris = { "https://rushmoresystem02.azurewebsites.net/Identity/Account/Login" },
+               
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
         };
 }

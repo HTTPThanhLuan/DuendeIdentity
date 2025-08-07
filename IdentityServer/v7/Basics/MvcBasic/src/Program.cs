@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using Client;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +64,16 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+builder.Services.AddDataProtection()
+    .SetApplicationName("RushmoreGroup")
+    .PersistKeysToFileSystem(new DirectoryInfo(@"C:\keys\"))
+    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
+    {
+        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256,
+         
+    });
+    
 var app = builder.Build();
 
 app.UseDeveloperExceptionPage();

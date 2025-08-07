@@ -23,11 +23,11 @@ public class LoggedOut : PageModel
     {
         // get context information (client name, post logout redirect URI and iframe for federated signout)
         var logout = await _interactionService.GetLogoutContextAsync(logoutId);
-
+       var uri = Clients.List.FirstOrDefault(c => logout.ClientIds.Contains(c.ClientId)).PostLogoutRedirectUris.FirstOrDefault();
         View = new LoggedOutViewModel
         {
             AutomaticRedirectAfterSignOut = LogoutOptions.AutomaticRedirectAfterSignOut,
-            PostLogoutRedirectUri = logout?.PostLogoutRedirectUri,
+            PostLogoutRedirectUri = uri, //  logout?.PostLogoutRedirectUri,
             ClientName = String.IsNullOrEmpty(logout?.ClientName) ? logout?.ClientId : logout?.ClientName,
             SignOutIframeUrl = logout?.SignOutIFrameUrl
         };

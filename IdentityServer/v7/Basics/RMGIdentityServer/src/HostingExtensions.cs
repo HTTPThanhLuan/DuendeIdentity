@@ -3,6 +3,7 @@
 
 
 using IdentityServerHost;
+using Microsoft.AspNetCore.Identity;
 using RMG.IdentityServer;
 using Serilog;
 
@@ -18,8 +19,9 @@ internal static class HostingExtensions
             options.Events.RaiseInformationEvents = true;
             options.Events.RaiseFailureEvents = true;
             options.Events.RaiseSuccessEvents = true;
-                    
-            options.EmitStaticAudienceClaim = true;        
+            options.DynamicProviders.SignOutScheme = IdentityConstants.ApplicationScheme;
+            options.EmitStaticAudienceClaim = true;   
+           
         })
             .AddTestUsers(TestUsers.Users);
 
