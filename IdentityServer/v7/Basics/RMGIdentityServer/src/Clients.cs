@@ -363,5 +363,86 @@ public static class Clients
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
             }
+            ,
+
+            new Client
+            {
+                ClientId = "client_eligi2",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,                  
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+                RedirectUris = { "https://rushmoresystem03.azurewebsites.net/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem03.azurewebsites.net/" },
+                //RedirectUris = { "https://localhost:44374/signin-oauth" },
+                //PostLogoutRedirectUris = { "https://localhost:44374/" },
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+             ,
+
+            new Client
+            {
+                ClientId = "client_cse",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+                RedirectUris = { "https://rushmoresystem04.azurewebsites.net/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem04.azurewebsites.net/" },
+                //RedirectUris = { "https://localhost:44321/signin-oauth" },
+                //PostLogoutRedirectUris = { "https://localhost:44321/" },
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            }
+              ,
+
+            new Client
+            {
+                ClientId = "client_childwelfare",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                AllowPlainTextPkce = false,
+                RedirectUris = { "https://rushmoresystem05.azurewebsites.net/signin-oauth" },
+                PostLogoutRedirectUris = { "https://rushmoresystem05.azurewebsites.net/" },
+                //RedirectUris = { "https://localhost:44311/signin-oauth" },
+                //PostLogoutRedirectUris = { "https://localhost:44311/" },
+                AlwaysIncludeUserClaimsInIdToken = true,
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+            },
+               new Client
+            {
+                ClientId = "client_dd",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "My OAuth Client",
+                AllowedGrantTypes = GrantTypes.Code,             
+                RequirePkce = false, // set true if you want PKCE with AddOAuth              
+                RedirectUris = { "https://localhost:44339/signin-oidc" },
+                PostLogoutRedirectUris = { "https://localhost:44339/" },               
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" },
+                
+                    
+
+                    //ClientId = "client_dd",
+                    //AllowedGrantTypes = GrantTypes.Code,
+                    //ClientSecrets = { new Secret("secret".Sha256()) },
+                    //RedirectUris = { "https://rushmoresystem06.azurewebsites.net/signin-oidc" },
+                    //PostLogoutRedirectUris = { "https://rushmoresystem06.azurewebsites.net/" },
+                    //AllowedScopes = { "openid", "profile", "email" },
+                    //RequirePkce = false,
+                    //AllowOfflineAccess = true,
+                    //AlwaysIncludeUserClaimsInIdToken = true,
+            }
         };
 }
