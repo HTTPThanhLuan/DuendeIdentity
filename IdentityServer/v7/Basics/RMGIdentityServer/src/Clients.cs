@@ -425,24 +425,15 @@ public static class Clients
                 ClientId = "client_dd",
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
-                AllowedGrantTypes = GrantTypes.Code,             
-                RequirePkce = false, // set true if you want PKCE with AddOAuth              
-                RedirectUris = { "https://localhost:44339/signin-oidc" },
-                PostLogoutRedirectUris = { "https://localhost:44339/" },               
+                AllowedGrantTypes = GrantTypes.Hybrid,             
+                RequirePkce = false,
+                //RedirectUris = { "https://localhost:44339/signin-oidc" },
+                //PostLogoutRedirectUris = { "https://localhost:44339/LogOn.aspx" }, 
+                RedirectUris = { "https://rushmoresystem06.azurewebsites.net/signin-oidc" },
+                PostLogoutRedirectUris = { "https://rushmoresystem06.azurewebsites.net/LogOn.aspx" },
                 AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "scope1", "scope2" },
-                
-                    
-
-                    //ClientId = "client_dd",
-                    //AllowedGrantTypes = GrantTypes.Code,
-                    //ClientSecrets = { new Secret("secret".Sha256()) },
-                    //RedirectUris = { "https://rushmoresystem06.azurewebsites.net/signin-oidc" },
-                    //PostLogoutRedirectUris = { "https://rushmoresystem06.azurewebsites.net/" },
-                    //AllowedScopes = { "openid", "profile", "email" },
-                    //RequirePkce = false,
-                    //AllowOfflineAccess = true,
-                    //AlwaysIncludeUserClaimsInIdToken = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" },                
+                AlwaysIncludeUserClaimsInIdToken = true,                  
             }
         };
 }
