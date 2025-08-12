@@ -547,7 +547,7 @@ public static class Clients
                 RedirectUris = {"https://rushmoresystem10.azurewebsites.net/signin-oidc" },
                 PostLogoutRedirectUris = {"https://rushmoresystem10.azurewebsites.net"},
 
-                //RedirectUris = { "https://localhost:44329/signin-oidc" },            
+                //RedirectUris = { "https://localhost:44329/signin-oidc" },
                 //PostLogoutRedirectUris = { "https://localhost:44329" },
 
                 AllowOfflineAccess = true,
