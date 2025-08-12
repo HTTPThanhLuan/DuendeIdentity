@@ -97,20 +97,7 @@ public static class Clients
             },
 
             // MVC basic sample
-            new Client
-            {
-                ClientId = "crs.pa",
-                ClientSecrets = { new Secret("secret".Sha256()) },
-
-                AllowedGrantTypes = GrantTypes.Code,
-
-                RedirectUris = { "https://localhost:44328/signin-oidc" },
-                FrontChannelLogoutUri = "https://localhost:44328/signout-oidc",
-                PostLogoutRedirectUris = { "https://localhost:44328/signout-callback-oidc" },
-
-                AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "scope1", "scope2" }
-            },
+         
             
             // MVC basic sample with token management
             // this client has a short access token lifetime to experiment with automatic refresh
@@ -551,5 +538,21 @@ public static class Clients
                     AllowOfflineAccess = true,
                     AlwaysIncludeUserClaimsInIdToken = true,
                 }
+              , new Client
+            {
+                ClientId = "client_pennsylvania",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                 RequirePkce = true,
+                AllowedGrantTypes = GrantTypes.Code,
+                RedirectUris = {"https://rushmoresystem10.azurewebsites.net/signin-oidc" },
+                PostLogoutRedirectUris = {"https://rushmoresystem10.azurewebsites.net"},
+
+                //RedirectUris = { "https://localhost:44329/signin-oidc" },            
+                //PostLogoutRedirectUris = { "https://localhost:44329" },
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" },
+                    AlwaysIncludeUserClaimsInIdToken = true,
+            },
         };
 }
