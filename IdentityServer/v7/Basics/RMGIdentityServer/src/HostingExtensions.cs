@@ -33,20 +33,20 @@ internal static class HostingExtensions
         // this is only needed for the JAR and JWT samples and adds supports for JWT-based client authentication
         idsvrBuilder.AddJwtBearerClientAuthentication();
 
-        builder.Services.AddAuthentication()
-            .AddOpenIdConnect("Google", "Sign-in with Google", options =>
-            {
-                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-                options.ForwardSignOut = IdentityServerConstants.DefaultCookieAuthenticationScheme;
+        builder.Services.AddAuthentication();
+            //.AddOpenIdConnect("Google", "Sign-in with Google", options =>
+            //{
+            //    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+            //    options.ForwardSignOut = IdentityServerConstants.DefaultCookieAuthenticationScheme;
 
-                options.Authority = "https://accounts.google.com/";
-                options.ClientId = "708778530804-rhu8gc4kged3he14tbmonhmhe7a43hlp.apps.googleusercontent.com";
+            //    options.Authority = "https://accounts.google.com/";
+            //    options.ClientId = "708778530804-rhu8gc4kged3he14tbmonhmhe7a43hlp.apps.googleusercontent.com";
 
-                options.CallbackPath = "/signin-google";
-                options.Scope.Add("email");
-                //Disable x-client-SKU and x-client-ver headers (security issue)
-                options.DisableTelemetry = true;
-            });
+            //    options.CallbackPath = "/signin-google";
+            //    options.Scope.Add("email");
+            //    //Disable x-client-SKU and x-client-ver headers (security issue)
+            //    options.DisableTelemetry = true;
+            //});
 
         return builder.Build();
     }
