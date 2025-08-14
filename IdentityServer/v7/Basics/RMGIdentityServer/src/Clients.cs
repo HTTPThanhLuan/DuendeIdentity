@@ -527,14 +527,14 @@ public static class Clients
                 {
                     ClientId = "client_NortDakota_DD",
                     ClientName = "Razor Pages App",
-                    AllowedGrantTypes = GrantTypes.Code, 
-                    RequirePkce = true,                 
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     RedirectUris = {"https://rushmoresystem11.azurewebsites.net/signin-oidc" },
                     PostLogoutRedirectUris = {"https://rushmoresystem11.azurewebsites.net"},
                     //RedirectUris = {"https://localhost:44328/signin-oidc" },
                     //PostLogoutRedirectUris = {"https://localhost:44328"},
-                    AllowedScopes = { "openid", "profile" },  
+                    AllowedScopes = { "openid", "profile" },
                     AllowOfflineAccess = true,
                     AlwaysIncludeUserClaimsInIdToken = true,
                 }
@@ -542,17 +542,17 @@ public static class Clients
             {
                 ClientId = "client_pennsylvania",
                 ClientSecrets = { new Secret("secret".Sha256()) },
-                 RequirePkce = true,
+                RequirePkce = true,
                 AllowedGrantTypes = GrantTypes.Code,
                 RedirectUris = {"https://rushmoresystem10.azurewebsites.net/signin-oidc" },
-                PostLogoutRedirectUris = {"https://rushmoresystem10.azurewebsites.net"},
+                PostLogoutRedirectUris = {"https://rushmoresystem10.azurewebsites.net", "https://rushmoresystem10.azurewebsites.net/LMS"},
 
                 //RedirectUris = { "https://localhost:44329/signin-oidc" },
-                //PostLogoutRedirectUris = { "https://localhost:44329" },
+                //PostLogoutRedirectUris = {"https://localhost:44329" , "https://localhost:44329/LMS" },
 
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" },
-                    AlwaysIncludeUserClaimsInIdToken = true,
+                AlwaysIncludeUserClaimsInIdToken = true,
             },
         };
 }
