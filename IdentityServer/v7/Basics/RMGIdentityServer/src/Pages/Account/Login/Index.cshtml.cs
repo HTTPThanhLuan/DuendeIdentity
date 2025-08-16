@@ -120,6 +120,11 @@ public class Index : PageModel
                     DisplayName = user.Username
                 };
 
+                //isuse.AdditionalClaims =new[]
+                //{
+                //    new System.Security.Claims.Claim("test", "test")
+                //};
+
                 await HttpContext.SignInAsync(isuser, props);
 
                 if (context != null)

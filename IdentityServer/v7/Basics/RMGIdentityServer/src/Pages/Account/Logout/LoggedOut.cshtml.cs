@@ -25,15 +25,20 @@ public class LoggedOut : PageModel
         var logout = await _interactionService.GetLogoutContextAsync(logoutId);
        
         string postLogoutRedirectUri = logout.PostLogoutRedirectUri;
-        if(string.IsNullOrEmpty(postLogoutRedirectUri))
-            postLogoutRedirectUri = Clients.List.FirstOrDefault(c => logout.ClientId==c.ClientId).PostLogoutRedirectUris.FirstOrDefault();
 
-        View = new LoggedOutViewModel
+        if (string.IsNullOrEmpty(postLogoutRedirectUri))
         {
-            AutomaticRedirectAfterSignOut = LogoutOptions.AutomaticRedirectAfterSignOut,
-            PostLogoutRedirectUri = postLogoutRedirectUri,
-            ClientName = String.IsNullOrEmpty(logout?.ClientName) ? logout?.ClientId : logout?.ClientName,
-            SignOutIframeUrl = logout?.SignOutIFrameUrl
-        };
+            if (logout.ClientId != null)
+                postLogoutRedirectUri = Clients.List.FirstOrDefault(c => logout.ClientId == c.ClientId).PostLogoutRedirectUris.FirstOrDefault();
+            else
+                postLogoutRedirectUri = Clients.List.FirstOrDefault(c => logout.ClientIds.Contains(c.ClientId)).PostLogoutRedirectUris.FirstOrDefault();
+        }
+        View = new LoggedOutViewModel
+            {
+                AutomaticRedirectAfterSignOut = LogoutOptions.AutomaticRedirectAfterSignOut,
+                PostLogoutRedirectUri = postLogoutRedirectUri,
+                ClientName = String.IsNullOrEmpty(logout?.ClientName) ? logout?.ClientId : logout?.ClientName,
+                SignOutIframeUrl = logout?.SignOutIFrameUrl
+            };
     }
 }

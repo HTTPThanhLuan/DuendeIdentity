@@ -209,11 +209,11 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
+              
 
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
@@ -228,11 +228,11 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
+               
 
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/eli/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/eli/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/eli" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
@@ -246,11 +246,10 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
-
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
+              
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/es/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/es/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/es" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
@@ -265,11 +264,10 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
-
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
+               
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/interview/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/interview/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/interview" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
@@ -282,18 +280,23 @@ public static class Clients
             {
                 ClientId = "client_cws",
                 ClientSecrets = { new Secret("secret".Sha256()) },
-                ClientName = "My OAuth Client",
+                ClientName = "My OAuth Client1",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
+              
 
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/cws/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/cws/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/cws" },
+
+                //RedirectUris = { "https://localhost:44322/signin-oidc" },
+                //PostLogoutRedirectUris = {"https://localhost:44322"},
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" }
+
+
             }
              ,
 
@@ -303,11 +306,11 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
+              
 
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/appeals/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/appeals/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/appeals" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
@@ -321,12 +324,14 @@ public static class Clients
                 ClientId = "client_access",
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
-                AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
-                AllowPlainTextPkce = false,
-
+                AllowedGrantTypes = GrantTypes.Code, 
+                RequirePkce = true,
                 RedirectUris = { "https://rushmoresystem01.azurewebsites.net/access/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/access/" },
+                PostLogoutRedirectUris = { "https://rushmoresystem01.azurewebsites.net/access" },
+
+                //RedirectUris = { "https://localhost:44322/signin-oidc" },
+                //PostLogoutRedirectUris = { "https://localhost:44322" ,"https://localhost:44322/Identity/Account/Login"},
+
 
                 AlwaysIncludeUserClaimsInIdToken = true,
 
