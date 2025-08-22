@@ -452,11 +452,14 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
                 AllowPlainTextPkce = false,
 
-                RedirectUris = { "https://rushmoresystem07.azurewebsites.net/eta/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem07.azurewebsites.net/eta/" },
+                RedirectUris = { "https://rushmoresystem07.azurewebsites.net/eta/signin-oidc" },
+                PostLogoutRedirectUris = { "https://rushmoresystem07.azurewebsites.net/eta" },
+
+                //RedirectUris = { "https://localhost:44323/signin-oidc" },
+                //PostLogoutRedirectUris = {"https://localhost:44323" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
                 AllowOfflineAccess = true,
@@ -488,11 +491,11 @@ public static class Clients
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 ClientName = "My OAuth Client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequirePkce = false, // set true if you want PKCE with AddOAuth
+                RequirePkce = true, // set true if you want PKCE with AddOAuth
                 AllowPlainTextPkce = false,
 
-                RedirectUris = { "https://rushmoresystem07.azurewebsites.net/contact/signin-oauth" },
-                PostLogoutRedirectUris = { "https://rushmoresystem07.azurewebsites.net/contact/" },
+                RedirectUris = { "https://rushmoresystem07.azurewebsites.net/contact/signin-oidc" },
+                PostLogoutRedirectUris = { "https://rushmoresystem07.azurewebsites.net/contact" },
 
                 AlwaysIncludeUserClaimsInIdToken = true,
                 AllowOfflineAccess = true,
@@ -554,6 +557,23 @@ public static class Clients
 
                 //RedirectUris = { "https://localhost:44329/signin-oidc" },
                 //PostLogoutRedirectUris = {"https://localhost:44329" , "https://localhost:44329/LMS" },
+
+                AllowOfflineAccess = true,
+                AllowedScopes = { "openid", "profile", "scope1", "scope2" },
+                AlwaysIncludeUserClaimsInIdToken = true,
+            }
+              ,
+             new Client
+            {
+                ClientId = "client_Riverside",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                RequirePkce = true,
+                AllowedGrantTypes = GrantTypes.Code,
+                RedirectUris = {"https://rushmoresystem12.azurewebsites.net/signin-oidc" },
+                PostLogoutRedirectUris = {"https://rushmoresystem12.azurewebsites.net"},
+
+                //RedirectUris = { "https://localhost:7070/signin-oidc" },
+                //PostLogoutRedirectUris = {"https://localhost:7070" },
 
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope1", "scope2" },
