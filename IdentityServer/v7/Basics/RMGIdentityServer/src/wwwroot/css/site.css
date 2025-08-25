@@ -13,7 +13,8 @@ html, body {
 }
 
 .icon-banner {
-  width: 32px;
+    width: 32px;
+    vertical-align: bottom;
 }
 
 .body-container {
